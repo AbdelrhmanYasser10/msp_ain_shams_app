@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:msp_app_version2/modules/events_screen/events_screen.dart';
+import 'package:msp_app_version2/modules/recruitment_screen/recruitment_screen.dart';
 import 'package:msp_app_version2/shared/style/colors/colors.dart';
+
+import '../events_screen/event_details_screen/cubit/event_cubit.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -9,7 +14,7 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgDarkTheme,
+      backgroundColor: Colors.black,
       body: Center(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -42,7 +47,16 @@ class IntroScreen extends StatelessWidget {
                         color: greenColor,
                         text: 'Events',
                         icon: FontAwesomeIcons.calendar,
-                        function: (){}
+                        function: (){
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (_)=>BlocProvider(
+                                  create: (_)=>EventCubit()..getAllEvents(),
+                                  child: const EventsScreen(),
+                                ),
+                            ),
+                          );
+                        }
                       ),
                   ),
                 ],
@@ -51,7 +65,13 @@ class IntroScreen extends StatelessWidget {
                   color: redColor,
                   text: 'Recruitment',
                   icon: FontAwesomeIcons.list,
-                  function: (){}
+                  function: (){
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_)=>const RecruitmentScreen(),
+                      ),
+                    );
+                  }
               ),
             ],
           ),

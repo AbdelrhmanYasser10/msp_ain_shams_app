@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class SocialMediaButton extends StatelessWidget {
   final String imageUrl;
@@ -14,9 +13,10 @@ class SocialMediaButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => WebView(
+            builder: (context) => /*WebView(
               initialUrl: url,
-            ),
+            ),*/
+            const Scaffold(),
           ),
         );
       },
