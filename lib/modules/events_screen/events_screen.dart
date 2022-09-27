@@ -21,7 +21,7 @@ class EventsScreen extends StatelessWidget {
         EventCubit model = EventCubit.get(context);
 
         if (state is EventLoadingDataFromServer) {
-          return const CircularProgressIndicator(color: greenColor);
+          return const Center(child: CircularProgressIndicator(color: greenColor));
         } else if (state is EventsGetDataError) {
           return const ServerError();
         } else {

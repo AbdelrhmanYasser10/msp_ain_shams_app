@@ -11,6 +11,7 @@ class ServerError extends StatelessWidget {
       child: Column
         (
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
             Icons.system_update_alt_sharp,
@@ -20,10 +21,13 @@ class ServerError extends StatelessWidget {
           const SizedBox(
             height: 20.0,
           ),
-          Text(
-            'Failed To Get Data From Sever Please Try Again Later',
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
-              color: AppCubit.get(context).isDark!?Colors.white:Colors.black,
+          Center(
+            child: Text(
+              'Failed To Get Data From Sever Please Try Again Later',
+              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                color: AppCubit.get(context).isDark!?Colors.white:Colors.black,
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
         ],

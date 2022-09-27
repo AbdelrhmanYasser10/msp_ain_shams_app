@@ -60,6 +60,8 @@ dependencies:
   #fonts
   google_fonts: ^3.0.1
 
+  #icon
+  flutter_launcher_icons: ^0.10.0
   intl:
 dev_dependencies:
   flutter_test:
